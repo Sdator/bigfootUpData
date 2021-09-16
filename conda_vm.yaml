@@ -1,0 +1,45 @@
+name: wow
+channels:
+  - defaults
+dependencies:
+  - aiodns=3.0.0=pyhd3eb1b0_2
+  - aiohttp=3.7.4=py39h2bbff1b_1
+  - altgraph=0.17=pyhd3eb1b0_0
+  - async-timeout=3.0.1=py39haa95532_0
+  - attrs=21.2.0=pyhd3eb1b0_0
+  - autopep8=1.5.7=pyhd3eb1b0_0
+  - ca-certificates=2021.7.5=haa95532_1
+  - certifi=2021.5.30=py39haa95532_0
+  - cffi=1.14.6=py39h2bbff1b_0
+  - chardet=3.0.4=py39haa95532_1003
+  - flake8=3.9.2=pyhd3eb1b0_0
+  - future=0.18.2=py39haa95532_1
+  - idna=3.2=pyhd3eb1b0_0
+  - importlib-metadata=4.6.4=py39haa95532_0
+  - macholib=1.14=pyhd3eb1b0_1
+  - mccabe=0.6.1=py39haa95532_1
+  - multidict=5.1.0=py39h2bbff1b_2
+  - openssl=1.1.1l=h2bbff1b_0
+  - pefile=2019.4.18=py_0
+  - pip=21.2.4=py38haa95532_0
+  - pycares=4.0.0=py39h2bbff1b_0
+  - pycodestyle=2.7.0=pyhd3eb1b0_0
+  - pycparser=2.20=py_2
+  - pycryptodome=3.10.1=py39h2bbff1b_0
+  - pyflakes=2.3.1=pyhd3eb1b0_0
+  - pyinstaller=3.6=py39h8cc25b3_6
+  - python=3.9.6=h6244533_1
+  - pywin32=228=py39hbaba5e8_1
+  - pywin32-ctypes=0.2.0=py39haa95532_1000
+  - setuptools=52.0.0=py39haa95532_0
+  - sqlite=3.36.0=h2bbff1b_0
+  - toml=0.10.2=pyhd3eb1b0_0
+  - typing-extensions=3.10.0.0=hd3eb1b0_0
+  - typing_extensions=3.10.0.0=pyh06a4308_0
+  - tzdata=2021a=h5d7bf9c_0
+  - vc=14.2=h21ff451_1
+  - vs2015_runtime=14.27.29016=h5e58377_2
+  - wheel=0.37.0=pyhd3eb1b0_1
+  - wincertstore=0.2=py39h2bbff1b_0
+  - yarl=1.6.3=py39h2bbff1b_0
+  - zipp=3.5.0=pyhd3eb1b0_0
