@@ -1,0 +1,33 @@
+ARG VARIANT="3.9"
+FROM python:${VARIANT}-alpine
+
+ARG aliOS="mirrors.aliyun.com"
+ARG tunaOS="mirrors.tuna.tsinghua.edu.cn"
+ARG tunaPIP="https://pypi.tuna.tsinghua.edu.cn/simple"
+
+# alpine 和 pip 使用清华镜像
+RUN sed -i 's|dl-cdn.alpinelinux.org|'${tunaOS}'|g' /etc/apk/repositories  \
+    && pip config set global.index-url ${tunaPIP}
+
+# 安装tk依赖
+RUN sed -i -e 's/dl-cdn.alpinelinux.org/mirrors.aliyun.com/' /etc/apk/repositories \
+    && apk --update add --no-cache \
+    libuuid \
+    gcc \
+    libc-dev \
+    linux-headers \
+    make  \
+    automake   \
+    g++  \
+    tk
+# 安装py依赖
+RUN pip install pyinstaller aiohttp
+
+# build
+COPY ../src/大脚插件自动更新_异步.py /work
+# RUN pyinstaller -F -w ./src/大脚插件自动更新_异步.py -i wow.ico
+RUN ls /work -al
+
+
+
+# docker build -t build:wow -f .\Dockerfile-Alpine .

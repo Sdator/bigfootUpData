@@ -1,0 +1,14 @@
+version: "3"
+services:
+  wow-build:
+    container_name: wow-build
+    image: "sdator/py:build"
+    build:
+      context: ..
+      dockerfile: .devcontainer/Dockerfile-Build
+    volumes:
+      - /mnt/d/Git/code/wow:/work:cached
+    working_dir: /work
+    tty: true
+    # environment:
+    # command: /bin/sh -c "while sleep 1000; do :; done"
