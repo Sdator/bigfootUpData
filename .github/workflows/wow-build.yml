@@ -1,0 +1,22 @@
+name: WOW Build CI
+on:
+  push:
+    paths: # 当一下目录发生推送的时候触发
+      - "./src/*"
+  workflow_dispatch:
+jobs:
+  Build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@master # 拉取仓库master分支
+
+      - name: PyInstaller Windows
+        uses: JackMcKew/pyinstaller-action-windows@main
+        with:
+          path: src
+
+      - uses: actions/upload-artifact@v2
+        with:
+          name: 大脚插件自动更新.exe"
+          path: src/dist/windows # or path/to/artifact

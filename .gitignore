@@ -1,7 +1,6 @@
 dist
-build
+/src/build
 __pycache__
 config.json
 *.zip
 .vscode/settings.json
-*.spec
