@@ -2,7 +2,7 @@ name: WOW Build CI
 on:
   push:
     paths: # 当一下目录发生推送的时候触发
-      - "./wow/大脚插件自动更新_异步.py"
+      - "./src/main.py"
   workflow_dispatch:
 jobs:
   Build:
