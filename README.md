@@ -17,7 +17,7 @@ docker run -v "$(pwd)/src:/src" cdrx/pyinstaller-windows:python3
 ### 方法 2
 
 1. Fork 本项目，进入 Actions 手动运行工作流等待构建完毕，下载构建好的工件。
-2. 打开本项目的 Actions 直接下载里面构建好的工件，当然这个有期限的，如果没过期了请自行构建。
+2. 打开本项目的 [Actions](https://github.com/Sdator/bigfootUpData/actions/runs/1253655540) 直接下载里面构建好的工件，当然这个有期限的，如果没过期了请自行构建。
 
 ## 使用方法
 
