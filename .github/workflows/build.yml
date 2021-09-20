@@ -18,5 +18,5 @@ jobs:
 
       - uses: actions/upload-artifact@v2
         with:
-          name: bigfootUpData.exe
+          name: 大脚更新工具 # 工件默认是zip压缩包
           path: src/dist/windows/main.exe # or path/to/artifact
