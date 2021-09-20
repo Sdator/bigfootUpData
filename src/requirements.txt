@@ -1,0 +1,2 @@
+pyinstaller @ https://github.com/pyinstaller/pyinstaller/archive/develop.zip
+aiohttp==3.7.4
