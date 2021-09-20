@@ -2,7 +2,7 @@ name: WOW Build CI
 on:
   push:
     paths: # 当一下目录发生推送的时候触发
-      - "./src/main.py"
+      - "./src/*"
   workflow_dispatch:
 jobs:
   Build:
