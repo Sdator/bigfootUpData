@@ -19,6 +19,15 @@ docker run -v "$(pwd)/src:/src" cdrx/pyinstaller-windows:python3
 1. Fork 本项目，进入 Actions 手动运行工作流等待构建完毕，下载构建好的工件。
 2. 打开本项目的 [Actions](https://github.com/Sdator/bigfootUpData/actions/runs/1253655540) 直接下载里面构建好的工件，当然这个有期限的，如果没过期了请自行构建。
 
+### 方法 3
+
+Windows10 本地环境编译，确保安装了 python 3.x
+
+```bash
+pip install aiohttp pyinstaller                 # 安装依赖
+pyinstaller -F -w ./src/main.py -i wow.ico      # 生成二进制
+```
+
 ## 使用方法
 
 运行程序，弹出的文件对话框中选择你的魔兽世界游戏更目录确认即可，等待数秒（根据网速而定），程序在后台自动下载最新版的大脚并且会放到本目录中（安装完成可删除），之后会自动安装，安装完成后有信息框提示。
