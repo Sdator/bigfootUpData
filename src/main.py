@@ -32,6 +32,7 @@ import os
 import re                       # 正则
 import zipfile                  # 解包
 import tkinter as tk            # 组件
+from tkinter import messagebox  # 选择框
 from tkinter import filedialog  # 选择框
 import asyncio  # 异步
 import aiohttp
@@ -55,15 +56,15 @@ class WindowGUI():
 
     # 信息框
     @staticmethod
-    def msg(title, msg, type=0):
+    def msg(title, msg):
         # 为了兼容之前的代码 做一个返回值转换
-        isOK = True if tk.messagebox.askquestion(
+        isOK = True if messagebox.askquestion(
             title, msg) == "yes" else False
         return isOK
 
     @staticmethod
     def exit(title="错误", msg="退出程序",):
-        tk.messagebox.showinfo(title, msg)
+        messagebox.showinfo(title, msg)
         sys.exit()
 
     @staticmethod
