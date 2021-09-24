@@ -90,4 +90,4 @@ pyinstaller -F -w main.py -i wow.ico    # 生成二进制  .dist/main.exe
 
 ## 许可
 
-本项目中的脚本和文档是在 [MIT 许可](https://github.com/actions/upload-artifact/blob/main/LICENSE)下发布的
+本项目中的脚本和文档是在 [MIT 许可](https://github.com/Sdator/bigfootUpData/blob/main/LICENSE)下发布的
