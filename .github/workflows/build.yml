@@ -18,11 +18,11 @@ jobs:
         uses: JackMcKew/pyinstaller-action-windows@main
         with:
           path: src
+          spec: main.spec # 如果和脚本同名 不写也可以的
       - uses: actions/upload-artifact@v2
         with:
           name: 大脚更新工具 # 工件默认是zip压缩包
           path: src/dist/windows/main.exe # or path/to/artifact
-          spec: main.spec
 
       - name: 生成测试文件
         uses: JackMcKew/pyinstaller-action-windows@main
