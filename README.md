@@ -1,20 +1,20 @@
-# 魔兽世界大脚插件更新工具
+# 魔兽世界大脚插件更新工具 <!-- omit in toc -->
 
-- [魔兽世界大脚插件更新工具](#魔兽世界大脚插件更新工具)
-  - [这个能做什么？](#这个能做什么)
-  - [构建二进制文件](#构建二进制文件)
-    - [方法 1 容器编译](#方法-1-容器编译)
-    - [方法 2 在线编译](#方法-2-在线编译)
-    - [方法 3 本地编译](#方法-3-本地编译)
-  - [使用方法](#使用方法)
-  - [小提示](#小提示)
-  - [原理](#原理)
-    - [跨大版本更新方案](#跨大版本更新方案)
-  - [须知](#须知)
+一个用于自动更新魔兽世界大脚插件的工具，属于下载器一类。
 
-## 这个能做什么？
+## 目录 <!-- omit in toc -->
 
-此工具用于自动更新魔兽世界大脚插件，属于下载器一类。
+- [构建二进制文件](#构建二进制文件)
+  - [方法 1 容器编译](#方法-1-容器编译)
+  - [方法 2 在线编译](#方法-2-在线编译)
+  - [方法 3 本地编译](#方法-3-本地编译)
+- [使用方法](#使用方法)
+- [小提示](#小提示)
+- [原理](#原理)
+  - [跨大版本更新方案](#跨大版本更新方案)
+- [须知](#须知)
+- [参考](#参考)
+- [许可](#许可)
 
 ## 构建二进制文件
 
@@ -22,11 +22,14 @@
 
 ### 方法 1 容器编译
 
-容器编译需要你自备 spec 文件，使用[方法 3](#方法-3)可以生成 spec。
+- 容器编译需要你自备 spec 文件，使用[方法 3](#方法-3)可以生成 spec。
+- 值得注意的是 /wine/drive_c/src 为容器默认工作目录链接到 /src
+- 所以要把源码所在目录挂载到容器中的 /src 目录可以避免一些低级错误
 
 ```bash
 # 构建完毕后生成 ./dist/windows/main.exe
-docker run -v "$(pwd)/src:/src" cdrx/pyinstaller-windows:python3
+docker run -v "$(pwd)/src:/src" cdrx/pyinstaller-windows:python3 # 发布用
+docker run -v "$(pwd)/src:/src" cdrx/pyinstaller-windows:python3 "pyinstaller -D main.py"  # 测试用
 ```
 
 ### 方法 2 在线编译
@@ -75,4 +78,16 @@ pyinstaller -F -w main.py -i wow.ico    # 生成二进制  .dist/main.exe
 
 **本程序是属于下载器一类，只负责下载更新文件，不保证大脚插件本身的安全性，如果是大脚插件出了问题请到大脚官方论坛反映，谢谢。**
 
-> 作者：絕版大叔、 QQ:250740270 基友 q 群：流放拾荒者 253529549 2019.10.6 AM
+> 作者：絕版大叔、 QQ:250740270
+> 基友 q 群：流放拾荒者 253529549
+> 2019.10.6 AM
+
+## 参考
+
+- [docker-pyinstaller](https://github.com/cdrx/docker-pyinstaller): 编译二进制
+- [pyinstaller-action-windows](https://github.com/JackMcKew/pyinstaller-action-windows)：工作流配置相关
+- [pyinstaller-action-windows-example](https://github.com/JackMcKew/pyinstaller-action-windows-example): 工作流模板
+
+## 许可
+
+本项目中的脚本和文档是在 [MIT 许可](https://github.com/actions/upload-artifact/blob/main/LICENSE)下发布的
