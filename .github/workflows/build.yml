@@ -33,6 +33,6 @@ jobs:
           name: test # 工件默认是zip压缩包
           # cdrx/pyinstaller-windows 初始化脚本默认使用当前目录下的 dist/windows 存放生成文件
           # pyinstaller --clean -y --dist ./dist/windows --workpath /tmp $SPEC_FILE
-          path: src/dist/windows/
+          path: src/dist/windows/ # 打包整个目录
       - name: Test Run
-        run: src/dist/windows/main.exe
+        run: src/dist/windows/main/main.exe
