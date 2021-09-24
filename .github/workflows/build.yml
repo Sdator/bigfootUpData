@@ -14,27 +14,24 @@ jobs:
       - name: Checkout
         uses: actions/checkout@master # 拉取仓库master分支
 
-      - name: PyInstaller Windows Build
+      - name: 生成发布文件
         uses: JackMcKew/pyinstaller-action-windows@main
         with:
           path: src
-
       - uses: actions/upload-artifact@v2
         with:
           name: 大脚更新工具 # 工件默认是zip压缩包
           path: src/dist/windows/main.exe # or path/to/artifact
+          spec: main.spec
 
-      - name: PyInstaller Windows Test
+      - name: 生成测试文件
         uses: JackMcKew/pyinstaller-action-windows@main
         with:
           path: src # 设置工作目录
           spec: test.spec
-
       - uses: actions/upload-artifact@v2
         with:
           name: test # 工件默认是zip压缩包
           # cdrx/pyinstaller-windows 初始化脚本默认使用当前目录下的 dist/windows 存放生成文件
           # pyinstaller --clean -y --dist ./dist/windows --workpath /tmp $SPEC_FILE
           path: src/dist/windows/ # 打包整个目录
-      - name: Test Run
-        run: src/dist/windows/main/main.exe
