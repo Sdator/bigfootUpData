@@ -1,31 +1,50 @@
 # 魔兽世界大脚插件更新工具
 
+- [魔兽世界大脚插件更新工具](#魔兽世界大脚插件更新工具)
+  - [这个能做什么？](#这个能做什么)
+  - [构建二进制文件](#构建二进制文件)
+    - [方法 1 容器编译](#方法-1-容器编译)
+    - [方法 2 在线编译](#方法-2-在线编译)
+    - [方法 3 本地编译](#方法-3-本地编译)
+  - [使用方法](#使用方法)
+  - [小提示](#小提示)
+  - [原理](#原理)
+    - [跨大版本更新方案](#跨大版本更新方案)
+  - [须知](#须知)
+
 ## 这个能做什么？
 
 此工具用于自动更新魔兽世界大脚插件，属于下载器一类。
 
 ## 构建二进制文件
 
-### 方法 1
+- 以下所有操作工作目录均为当前项目
+
+### 方法 1 容器编译
+
+容器编译需要你自备 spec 文件，使用[方法 3](#方法-3)可以生成 spec。
 
 ```bash
+# 构建完毕后生成 ./dist/windows/main.exe
 docker run -v "$(pwd)/src:/src" cdrx/pyinstaller-windows:python3
 ```
 
-> 构建完毕后生成 ./src/dist/windows/main.exe
-
-### 方法 2
+### 方法 2 在线编译
 
 1. Fork 本项目，进入 Actions 手动运行工作流等待构建完毕，下载构建好的工件。
 2. 打开本项目的 [Actions](https://github.com/Sdator/bigfootUpData/actions/runs/1253655540) 直接下载里面构建好的工件，当然这个有期限的，如果没过期了请自行构建。
 
-### 方法 3
+### 方法 3 本地编译
 
-Windows10 本地环境编译，确保安装了 python 3.x
+- Windows10 本地环境编译，确保安装了 python 3.x
+- 依赖
+  - pip install aiohttp
+  - pip install pyinstaller
 
 ```bash
-pip install aiohttp pyinstaller                 # 安装依赖
-pyinstaller -F -w ./src/main.py -i wow.ico      # 生成二进制
+pip install aiohttp pyinstaller         # 安装依赖
+cd src                                  # 进入源代码目录
+pyinstaller -F -w main.py -i wow.ico    # 生成二进制  .dist/main.exe
 ```
 
 ## 使用方法
