@@ -1,8 +1,10 @@
 name: WOW Build CI
+
 on:
   push:
     paths: # 当一下目录发生推送的时候触发
       - "src/*"
+      - ".github/workflows/*"
   workflow_dispatch:
 
 jobs:
